@@ -9,13 +9,6 @@ const Div = styled.div`
     padding: 2%;
 `
 
-const Title = styled.h1`
-    color: black;
-    font-family: "Playfair Display SC", serif;
-    font-style: italic;
-    font-weight: 900;
-    font-size: calc(2px + 4vw);
-`
 
 export default function Header(){
     return(
