@@ -11,7 +11,7 @@ const StyledHelperText = styled.h2`
     font-family: var(--font-playfair), serif;
 `
 
-export const StyledText = styled.p`
+const StyledText = styled.p`
     color: var(--color-black);
     font-size: calc(2px + 1.5vw);
     margin: 25px;
@@ -29,7 +29,7 @@ export const StyledButton = styled.button`
     width: 30%;
 `
 
-export const StyledDiv = styled.div`
+const StyledDiv = styled.div`
     font-family: var(--font-playfair), serif;
     font-size: calc(2px + 2vw);
     box-shadow: 1px 2px 8px #78678E;
