@@ -5,22 +5,21 @@ import styled from "styled-components";
 
 const StyledHelperText = styled.h2`
     color: var(--color-black);
-    text-shadow: 1px 2px 8px #78678E;
     font-size: calc(5px + 2vw);
-    padding-bottom: 50px;
+    padding-bottom: 20px;
     font-family: var(--font-playfair), serif;
 `
 
 const StyledText = styled.p`
     color: var(--color-black);
-    text-shadow: 1px 2px 8px #78678E;
     font-size: calc(2px + 1.5vw);
-    margin: 20px;
+    margin: 25px;
     font-family: var(--font-playfair), serif;
 `
 
 const StyledButton = styled.button`
-    margin: 20px;
+    margin: 10px;
+    padding: 10px;
     background-color: var(--color-royal-gold);
     border-radius: 15px;
     color: var(--color-black);
@@ -32,20 +31,21 @@ const StyledButton = styled.button`
 const StyledDiv = styled.div`
     font-family: var(--font-playfair), serif;
     font-size: calc(2px + 2vw);
+    box-shadow: 1px 2px 8px #78678E;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
     background-color: var(--color-bright-snow);
     margin: 5% auto;
     width: 80%;
-    padding: 10%;
+    padding: 8%;
     border-radius: 30px;
 `
 
 export default function LoginForm() {
 
     const [loading, setLoading] = useState(false);
-    const [error, setError] = useState("");
+    const [error, setError] = useState(" ");
     const [domain, setDomain] = useState("");
 
 
@@ -77,6 +77,7 @@ export default function LoginForm() {
     return(
         <StyledDiv>
                 <StyledHelperText>Login Page</StyledHelperText>
+
                 <StyledText>Click on the button below to begin the login process through your Google account.</StyledText>
 
                 <StyledButton
@@ -87,7 +88,7 @@ export default function LoginForm() {
                     {loading ? "Redirecting ..." : "Login with Google"}
                 </StyledButton>
                 {error && (
-                    <StyledText>error</StyledText>
+                    <StyledText>{error}</StyledText>
                 )}
         </StyledDiv>
     )
