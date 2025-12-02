@@ -7,13 +7,6 @@ const Img = styled.img`
     justify-content: center;
 `
 
-const StyledText = styled.p`
-    color: black;
-    font-size: calc(2px + 1.5vw);
-    margin: 25px;
-    font-family: "Playfair Display SC", serif;
-`
-
 const StyledDiv = styled.div`
     font-size: calc(2px + 2vw);
     box-shadow: 1px 2px 8px #78678E;
@@ -34,24 +27,24 @@ export default function Profile(){
     if (status === "loading"){
         return (
             <StyledDiv>
-                <StyledText>Loading...</StyledText>
+                <p className={"text-black font-playfair m-2 p-2"}>Loading...</p>
             </StyledDiv>
         );
     }
 
-    if(status==="unauthenticated"){
+    if(status === "unauthenticated"){
         return (
             <StyledDiv>
-                <StyledText>You are not currently logged in.</StyledText>
+                <p className={"text-black font-playfair m-2 p-2"}>You are not currently logged in.</p>
             </StyledDiv>
         )
     }
 
     return (
         <StyledDiv>
-            <StyledText>Welcome {session?.user?.name} with email {session?.user?.email}. Congrats on successfully logging in!</StyledText>
+            <p className={"text-black font-playfair m-2 p-2"}>Welcome {session?.user?.name} with email {session?.user?.email}. Congrats on successfully logging in!</p>
             <Img src={`${session?.user?.image}`} alt={`User ${session?.user?.name}`}/>
-            <StyledText>Cool image and email!</StyledText>
+            <p className={"text-black font-playfair m-2 p-2"}>Cool image and email!</p>
         </StyledDiv>
     )
 

@@ -20,7 +20,7 @@ const Title = styled.h1`
 export default function Header(){
     return(
         <Div>
-            <Title>MP-6: OAuth Application</Title>
+            <p className={"text-black text-5xl italic font-bold m-2 p-2"}>MP-6: OAuth Application</p>
         </Div>
     )
 }
