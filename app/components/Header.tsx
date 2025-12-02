@@ -6,7 +6,7 @@ const Div = styled.div`
     align-items: flex-start;
     background-color: var(--color-sky-blue);
     margin: 0 auto;
-    padding: 3%;
+    padding: 2%;
 `
 
 const Title = styled.h1`
@@ -14,7 +14,7 @@ const Title = styled.h1`
     font-family: var(--font-playfair), serif;
     font-style: italic;
     font-weight: 900;
-    font-size: calc(2px + 2vw);
+    font-size: calc(2px + 4vw);
 `
 
 export default function Header(){
