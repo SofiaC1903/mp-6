@@ -8,5 +8,10 @@ export const {handlers, auth} = NextAuth(
             clientSecret: process.env.GOOGLE_CLIENT_SECRET,
         })
         ],
+        callbacks: {
+            async redirect(){
+                return '/profile'
+            }
+        },
     },
 )

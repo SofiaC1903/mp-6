@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Header from "@/app/components/Header";
+import {SessionProvider} from "next-auth/react";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -11,7 +11,9 @@ export default function RootLayout({children,}: Readonly<{ children: React.React
   return (
     <html lang="en">
       <body>
-        {children}
+        <SessionProvider>
+            {children}
+        </SessionProvider>
       </body>
     </html>
   );

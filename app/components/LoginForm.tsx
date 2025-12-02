@@ -1,8 +1,7 @@
 "use client";
-import {useEffect, useState} from "react";
+import { useState} from "react";
 import styled from "styled-components";
 import {signIn} from "next-auth/react";
-import {usePathname} from "next/navigation";
 
 
 const StyledHelperText = styled.h2`
@@ -12,14 +11,14 @@ const StyledHelperText = styled.h2`
     font-family: var(--font-playfair), serif;
 `
 
-const StyledText = styled.p`
+export const StyledText = styled.p`
     color: var(--color-black);
     font-size: calc(2px + 1.5vw);
     margin: 25px;
     font-family: var(--font-playfair), serif;
 `
 
-const StyledButton = styled.button`
+export const StyledButton = styled.button`
     margin: 10px;
     padding: 10px;
     background-color: var(--color-royal-gold);
@@ -30,7 +29,7 @@ const StyledButton = styled.button`
     width: 30%;
 `
 
-const StyledDiv = styled.div`
+export const StyledDiv = styled.div`
     font-family: var(--font-playfair), serif;
     font-size: calc(2px + 2vw);
     box-shadow: 1px 2px 8px #78678E;
@@ -47,12 +46,11 @@ const StyledDiv = styled.div`
 export default function LoginForm() {
 
     const [loading, setLoading] = useState(false);
-    const currentPath = usePathname();
 
     const HandleAPI = async () => {
         try{
             setLoading(true);
-            await signIn("google", {callbackURL: `${currentPath}/auth/profile`})
+            await signIn("google")
         }catch(err){
         console.error(err);
         }
