@@ -1,6 +1,8 @@
-"use client"
-import { useState, useEffect } from "react";
+"use client";
+import {useEffect, useState} from "react";
 import styled from "styled-components";
+import {signIn} from "next-auth/react";
+import {usePathname} from "next/navigation";
 
 
 const StyledHelperText = styled.h2`
@@ -45,34 +47,16 @@ const StyledDiv = styled.div`
 export default function LoginForm() {
 
     const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(" ");
-    const [domain, setDomain] = useState("");
+    const currentPath = usePathname();
 
-
-    async function performLogin(){
-        setLoading(true);
-        setError("");
-
+    const HandleAPI = async () => {
         try{
-            const Res =  await createNewLink();
-            if(Res.length > 0){
-                setError(Res);
-            }else{
-                setShortURL(`${domain}/${alias}`);
-            }
+            setLoading(true);
+            await signIn("google", {callbackURL: `${currentPath}/auth/profile`})
         }catch(err){
-            console.error(err);
-            setError("An error occurred while creating all. Please try again later.");
-        }finally {
-            setLoading(false);
+        console.error(err);
         }
     }
-
-
-    useEffect(() =>{
-        setDomain(window.location.origin);
-    }, []);
-
 
     return(
         <StyledDiv>
@@ -82,14 +66,12 @@ export default function LoginForm() {
 
                 <StyledButton
                     onClick={() =>
-                        performLogin()
+                        HandleAPI()
                     }
+                    disabled={loading}
                 >
                     {loading ? "Redirecting ..." : "Login with Google"}
                 </StyledButton>
-                {error && (
-                    <StyledText>{error}</StyledText>
-                )}
         </StyledDiv>
     )
 }
