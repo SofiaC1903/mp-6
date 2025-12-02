@@ -10,8 +10,8 @@ const Div = styled.div`
 `
 
 const Title = styled.h1`
-    color: var(--color-black);
-    font-family: var(--font-playfair), serif;
+    color: black;
+    font-family: "Playfair Display SC", serif;
     font-style: italic;
     font-weight: 900;
     font-size: calc(2px + 4vw);

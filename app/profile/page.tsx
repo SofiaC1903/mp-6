@@ -8,20 +8,19 @@ const Img = styled.img`
 `
 
 const StyledText = styled.p`
-    color: var(--color-black);
+    color: black;
     font-size: calc(2px + 1.5vw);
     margin: 25px;
-    font-family: var(--font-playfair), serif;
+    font-family: "Playfair Display SC", serif;
 `
 
 const StyledDiv = styled.div`
-    font-family: var(--font-playfair), serif;
     font-size: calc(2px + 2vw);
     box-shadow: 1px 2px 8px #78678E;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: var(--color-bright-snow);
+    background-color: #F9F9F9;;
     margin: 5% auto;
     width: 80%;
     padding: 8%;
@@ -40,7 +39,7 @@ export default function Profile(){
         );
     }
 
-    if(status!="authenticated"){
+    if(status==="unauthenticated"){
         return (
             <StyledDiv>
                 <StyledText>You are not currently logged in.</StyledText>
